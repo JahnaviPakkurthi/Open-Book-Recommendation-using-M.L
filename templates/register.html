@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+               body{
+            background-image: url(pngtree-ppt-minimalistic-geometric-background-backgroundppt-template-backgroundsimplecool-image_54790.jpg);
+        }
+        ul{
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            text-decoration-style: none;
+            background-color: rgb(252, 251, 251);
+            position: sticky;
+        }
+        li{
+          float: left;
+          list-style-type: none;
+        }
+        li a{
+            color: rgb(4, 4, 29);
+            display: block;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+            li a:hover{
+                background-color:rgb(61, 211, 240);
+            }
+            .countainer{
+                /*-webkit-filter: blur(5px);
+                filter:blur(5px);*/
+                background-color: whitesmoke;
+                border-radius: 50px;
+                margin-left: 500px;
+                margin-top: 40px;
+                border: 1px solid none;
+                height: 590px;
+                width: 400px;
+            }
+            .form{
+                margin-top: 50px;
+                padding: 60px;
+            }
+            .IP{
+                border: 1px sloid black;
+                background-color: antiquewhite;
+                width: 270px;
+                height: 38px;
+                border: 50px;
+            }
+            .IP1{
+                border: 1px sloid black;
+                background-color: antiquewhite;
+                width: 270px;
+                height: 38px;
+                border: 50px;
+                cursor: pointer;
+                border-radius: 50px;
+            }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="/">SIGN IN</a></li>
+        <li><a href="register">REGISTER</a></li>
+        <li><a href="about">ABOUT</a></li>
+    </ul>
+	<h1 align=center>Book Recommendation System </h1>
+    <div class="countainer">
+        <div class="form">
+           <form action="registerDB" method="post">
+            <label for="name">NAME</label><br>
+            <input type="text" name="name" class="IP" required placeholder="NAME"><br><br>
+            <label for="num">PH NUM</label><br><br>
+            <input type="text"  name="phno" class="IP" required placeholder="9---- -----8" pattern="[6-9]{1}[0-9]{9}"><br><br>
+            <label for="email">E-MAIL</label><br><br>
+            <input type="email" placeholder="MAIL"  name="mail" class="IP" required pattern="[A_Za-z0-9_.]{7,20}+@[A-Za-z]{10}"> <br><br>
+            <label for="pass">PASSWORD</label><br><br>
+            <input type="password" class="IP"  name="pwd" required placeholder="-----"><br><br>
+            
+            <input type="submit" value="REGISTER" class="IP1">
+           </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html>
+   <head>
+       <title>book Recommender</title>
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   </head>
+   <body style="background:#0a0a09">
+       <div style="color:white; margin-top:15px; border-radius:20px;" class="container my-3 mt-3 bg-dark">
+           <h1 class="text-center">book Recommendation System</h1>
+
+            <form action="/recommend" method="POST" id="recommendation-form">
+                <div class="form-group">
+                    <label for="book-select">Select a book:</label>
+                    <select class="form-control" id="book-select" name="selected_book">
+                        {% for book in book_list %}
+                            <option value="{{ book }}" {% if book == selected_book %}selected{% endif %}>{{ book }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Get Recommendations</button>
+            </form>
+
+            {% if book_list %}
+   <h2>Recommended books:</h2>
+   <div class="row">
+       {% for i in range(recommended_book_titles|length) %}
+           <div class="col-md-3">
+               <div class="card mb-3">
+                   <img src="{{ recommended_book_posters[i] }}" class="card-img-top" alt="...">
+                   <div class="card-body">
+                       <h5 class="card-title">{{ recommended_book_titles[i] }}</h5>
+                   </div>
+               </div>
+           </div>
+       {% endfor %}
+   </div>
+
+{% endif %}
+
+<script>
+    // Remember the selected book
+    document.getElementById('book-select').addEventListener('change', function() {
+        localStorage.setItem('selected_book', this.value);
+    });
+
+    // Set the selected book after page reload
+    document.addEventListener('DOMContentLoaded', function() {
+        var selected_book = localStorage.getItem('selected_book');
+        if (selected_book) {
+            document.getElementById('book-select').value = selected_book;
+        }
+    });
+</script>
+
+       </div>
+
+
+       <!-- Optional JavaScript -->
+       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   </body>
+
+</html>
